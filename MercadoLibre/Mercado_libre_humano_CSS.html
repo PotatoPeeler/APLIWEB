@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mercado Libre eaeaea en tu mente makinea</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #ffe600, #ffffff);
+    }
+
+    header, nav, footer {
+      background-color: #ffe600;
+      padding: 10px 20px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 32px;
+      color: #333366;
+      line-height: 1.2;
+    }
+
+    .buscador input[type="text"] {
+      width: 800px;
+      height: 40px;
+      font-size: 16px;
+    }
+
+    .buscador input[type="submit"] {
+      height: 42px;
+      background: #ffffff;
+      border: none;
+      padding: 0 15px;
+      cursor: pointer;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      font-size: 14px;
+    }
+
+    nav a {
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    h2 {
+      text-align: center;
+      margin: 40px 0 20px;
+    }
+
+    .tarjetas-wrapper {
+      position: relative;
+      padding: 20px 40px;
+    }
+
+    .scroll-container {
+      display: flex;
+      overflow-x: auto;
+      gap: 20px;
+      scroll-behavior: smooth;
+      padding: 10px 0;
+    }
+
+    .scroll-container::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .scroll-container::-webkit-scrollbar-thumb {
+      background-color: #ccc;
+      border-radius: 4px;
+    }
+
+    .card {
+      min-width: 220px;
+      flex: 0 0 auto;
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .card h4 {
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .card img {
+      width: 60px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 14px;
+      margin: 10px 0;
+    }
+
+    .card button {
+      background-color: #ffe600;
+      border: none;
+      padding: 8px 12px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .scroll-btn {
+      position: absolute;
+      top: 45%;
+      transform: translateY(-50%);
+      background-color: #ffe600;
+      border: none;
+      font-size: 24px;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 50%;
+      z-index: 10;
+    }
+
+    .scroll-left {
+      left: 10px;
+    }
+
+    .scroll-right {
+      right: 10px;
+    }
+
+    .ofertas-table {
+      margin: auto;
+      margin-bottom: 60px;
+      background-color: white;
+      border-collapse: collapse;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .ofertas-table td {
+      padding: 10px;
+      border: 1px solid #ddd;
+      vertical-align: top;
+      text-align: center;
+    }
+
+    .ofertas-table img {
+      max-width: 120px;
+      height: auto;
+    }
+
+    footer {
+      background-color: #ffffff;
+      color: #444;
+      padding: 20px;
+      font-size: 13px;
+    }
+
+    footer a {
+      color: #333;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    footer table {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+    <header>
+        <div style="display: flex; align-items: center; padding: 10px 40px;">
+          <div style="margin-right: 60px;">
+            <h1 style="margin: 0; font-size: 32px; color: #333366; line-height: 1.2;">MERCADO<br>LIBRE</h1>
+          </div>
+          <form>
+            <input type="text" placeholder="Buscar productos, marcas y más..." style="width: 800px; height: 40px; font-size: 16px;">
+            <input type="submit" value="Buscar" style="height: 42px; background: #fff; border: none; padding: 0 15px; cursor: pointer;">
+          </form>
+        </div>
+    </header>
+
+  <nav>
+    <a href="#">Ingresa tu<br>ubicación</a>
+    <a href="#">           </a>
+    <a href="#">Categorías</a>
+    <a href="#">Ofertas</a>
+    <a href="#">Cupones</a>
+    <a href="#">Supermercado</a>
+    <a href="#">Moda</a>
+    <a href="#">Mercado Play</a>
+    <a href="#">Vender</a>
+    <a href="#">Ayuda</a>
+    <a href="#">           </a>
+    <a href="#">Crea tu cuenta</a>
+    <a href="#">Ingresa</a>
+    <a href="#">Mis compras</a>
+    <a href="#">🛒</a>
+  </nav>
+
+  <h2>🛍️ Opciones de Compra</h2>
+  <div class="tarjetas-wrapper">
+    <button class="scroll-btn scroll-left" onclick="scrollCards(-1)">←</button>
+    <div class="scroll-container" id="scrollCards">
+      <div class="card">
+        <h4>Ingresa a tu cuenta</h4>
+        <img src="https://http2.mlstatic.com/frontend-assets/homes-palpatine/dynamic-access-desktop/registration-da.svg">
+        <p>Disfruta de ofertas y compras sin límites</p>
+        <button>Ingresar</button>
+      </div>
+      <div class="card">
+        <h4>Ubicación</h4>
+        <img src="https://http2.mlstatic.com/frontend-assets/homes-palpatine/dynamic-access-desktop/location.svg">
+        <p>Consulta tiempos de entrega</p>
+        <button>Ingresar ubicación</button>
+      </div>
+      <div class="card">
+        <h4>Medios de pago</h4>
+        <img src="https://http2.mlstatic.com/frontend-assets/homes-palpatine/dynamic-access-desktop/payment-methods.svg">
+        <p>Paga de forma rápida y segura</p>
+        <button>Ver medios</button>
+      </div>
+      <div class="card">
+        <h4>Menos de $40.000</h4>
+        <img src="https://http2.mlstatic.com/frontend-assets/homes-palpatine/dynamic-access-desktop/low-price-product.svg">
+        <p>Descubre productos con precios bajos</p>
+        <button>Ver productos</button>
+      </div>
+      <div class="card">
+        <h4>Más vendidos</h4>
+        <img src="https://http2.mlstatic.com/frontend-assets/homes-palpatine/dynamic-access-desktop/top-sale.svg">
+        <p>Explora los productos tendencia</p>
+        <button>Ver más</button>
+      </div>
+      <div class="card">
+        <h4>Compra protegida</h4>
+        <img src="https://http2.mlstatic.com/frontend-assets/homes-palpatine/dynamic-access-desktop/buy-protected.svg">
+        <p>Devolución sin costo</p>
+        <button>Cómo funciona</button>
+      </div>
+    </div>
+    <button class="scroll-btn scroll-right" onclick="scrollCards(1)">→</button>
+  </div>
+
+  <h2>🛍️ Oferta del día</h2>
+  <table class="ofertas-table">
+    <tr>
+      <td>
+        <img src="https://http2.mlstatic.com/D_Q_NP_2X_991818-MLU76534344606_052024-V.webp">
+        <p><b>Smart TV Samsung 65"</b></p>
+        <p><s>$2.799.900</s> <b style="color:green;">$2.079.900</b> 25% OFF</p>
+        <p>12 cuotas de $173.325</p>
+        <p style="color:green;"><b>Envío gratis</b></p>
+      </td>
+      <td>
+        <img src="https://http2.mlstatic.com/D_Q_NP_2X_839868-MLA81501015664_012025-AB.webp">
+        <p><b>Silla Ergonómica</b></p>
+        <p><s>$369.900</s> <b style="color:green;">$217.656</b> 41% OFF</p>
+        <p>3 cuotas de $72.552</p>
+        <p style="color:green;"><b>Envío gratis ⚡FULL</b></p>
+      </td>
+      <td>
+        <img src="https://http2.mlstatic.com/D_Q_NP_2X_759625-MLA81958062672_022025-AB.webp">
+        <p><b>POCO X7 Pro 512GB</b></p>
+        <p><s>$2.409.857</s> <b style="color:green;">$1.649.900</b> 34% OFF</p>
+        <p>12 cuotas de $137.492</p>
+        <p style="color:green;"><b>Envío gratis ⚡FULL</b></p>
+      </td>
+      <td>
+        <img src="https://http2.mlstatic.com/D_Q_NP_2X_764563-MLU76718845902_062024-AB.webp">
+        <p><b>Bomba Presurizadora</b></p>
+        <p><s>$334.999</s> <b style="color:green;">$155.200</b> 53% OFF</p>
+        <p>3 cuotas de $51.733</p>
+        <p style="color:green;"><b>Envío gratis ⚡FULL</b></p>
+      </td>
+    </tr>
+  </table>
+
+  <footer>
+    <center>
+      <table>
+        <tr>
+          <td align="center">
+            <a href="#">Trabaja con nosotros</a> |
+            <a href="#">Términos y condiciones</a> |
+            <a href="#">Promociones</a> |
+            <a href="#">Cómo cuidamos tu privacidad</a> |
+            <a href="#">Accesibilidad</a> |
+            <a href="#">Ayuda</a> |
+            <a href="#">Navidad</a> |
+            <a href="https://www.sic.gov.co" target="_blank">www.sic.gov.co</a>
+          </td>
+        </tr>
+        <tr>
+          <td align="center">
+            Copyright © 1999-2025 MercadoLibre Colombia LTDA.<br>
+            Carrera 17 Número 93 - 09 Piso 3, Bogotá D.C., Colombia
+          </td>
+        </tr>
+      </table>
+    </center>
+  </footer>
+
+  <script>
+    function scrollCards(direction) {
+      const container = document.getElementById('scrollCards');
+      const scrollAmount = 300;
+      container.scrollBy({
+        left: direction * scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  </script>
+
+</body>
+</html>
